@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy tính nâng cao</title>
+</head>
+<style>
+    table{
+        border: 1px solid;
+    }
+
+    td{
+        width: 50px;
+        height: 50px;
+        border: 1px solid;
+    }
+    button{
+        width: 100%;
+        height: 100%;
+    }
+    #screen{
+        text-align: right;
+        font-size: 30px;
+        padding-right: 10px;
+    }
+</style>
+<body>
+    <table id="calculator">
+        <tr>
+            <td id="screen" colspan="4">0</td>
+        </tr>
+        <tr>
+            <td><button onclick="addNumber('(')">(</button></td>
+            <td><button onclick="addNumber(')')">)</button></td>
+            <td><button onclick="deleteNumber()">DEL</button></td>
+            <td><button onclick="clearScreen()">AC</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="addNumber(7)">7</button></td>
+            <td><button onclick="addNumber(8)">8</button></td>
+            <td><button onclick="addNumber(9)">9</button></td>
+            <td><button onclick="addNumber('/')">/</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="addNumber(4)">4</button></td>
+            <td><button onclick="addNumber(5)">5</button></td>
+            <td><button onclick="addNumber(6)">6</button></td>
+            <td><button onclick="addNumber('*')">x</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="addNumber(1)">1</button></td>
+            <td><button onclick="addNumber(2)">2</button></td>
+            <td><button onclick="addNumber(3)">3</button></td>
+            <td><button onclick='addNumber("-")'>-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="addNumber(0)">0</button></td>
+            <td><button onclick="addNumber('.')">.</button></td>
+            <td><button onclick="calulate()">=</button></td>
+            <td><button onclick="addNumber('+')">+</button></td>
+        </tr>
+    </table>
+    <script>
+        let screen = document.getElementById('screen');
+        let result = 0;
+        function addNumber(number){
+            if(screen.innerText == '0'){
+                screen.innerText = number;
+            }else{
+                screen.innerText += number;
+            }
+            // screen. innerText = screen. innerText + number;
+        }
+        function clearScreen(){
+            screen.innerText = 0;
+        }
+
+        function calulate(){
+            result = eval(screen.innerText);
+            screen.innerText = result;
+        }
+
+        function percentNumber(){
+            result = eval(screen.innerText)/100;
+            screen.innerText = result;
+
+        }
+
+        function deleteNumber(){
+            result = screen.innerText.substring(0,screen.innerText.length-1);
+            screen.innerText = result;
+        }
+
+        // hello
+        
+    </script>
+</body>
+</html>

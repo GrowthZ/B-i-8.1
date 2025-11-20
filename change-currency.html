@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Chuyển đổi tiền tệ</legend>
+            <label for="amount">Amount</label>
+            <input type="text" id="amount">
+            <br>
+            <label for="from">From</label>
+            <!-- <input type="text" id="from"> -->
+             <select id="from">
+                <option value="26376.04">VND</option>
+                <option selected value="1">USD</option>
+                <option value="0.87">EUR</option>
+                <option value="32.43">Baht</option>
+             </select>
+             <br>
+             <label for="to">To</label>
+            <!-- <input type="text" id="from"> -->
+             <select id="to">
+                <option value="26376.04">VND</option>
+                <option value="1">USD</option>
+                <option value="0.87">EUR</option>
+                <option value="32.43">Baht</option>
+
+             </select>
+             <br>
+             <button type="button" onclick="changeCurrency()">Convert</button>
+             <p id="result"></p>
+        </fieldset>
+    </form>
+    
+
+    <script>
+        function changeCurrency(){
+            let amount = +document.getElementById('amount').value;//string
+            // amount = parseFloat(amount);
+            let from = document.getElementById('from').value;
+            let to = document.getElementById('to').value;
+            let result = 0;
+            let resultE = document.getElementById('result');
+            // alert(amount+","+from+","+to);
+
+            // if(from == "usd" && to == "vnd"){
+            //     result = amount * 26376;
+            // }
+
+            // if(from == "vnd" && to == "usd"){
+            //     result = amount / 26376;
+            // }
+
+            result = (amount * to)/from
+
+            resultE.innerHTML = result;
+            // resultE.innerHTML = Math.round;//round: đúng, floor, ceil
+
+        }
+    </script>
+</body>
+</html>
